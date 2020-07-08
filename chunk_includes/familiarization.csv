@@ -1,33 +1,33 @@
-picture_file	picture_size
-PICTURE_115_LITTLE.jpg	500
-PICTURE_148_LITTLE.jpg	500
-PICTURE_152_LITTLE.jpg	500
-PICTURE_17_LITTLE.jpg	500
-PICTURE_196_LITTLE.jpg	500
-PICTURE_236_LITTLE.jpg	500
-PICTURE_241_LITTLE.jpg	500
-PICTURE_260_LITTLE.jpg	500
-PICTURE_299_LITTLE.jpg	500
-PICTURE_319_LITTLE.jpg	500
-PICTURE_338_LITTLE.jpg	500
-PICTURE_343_LITTLE.jpg	500
-PICTURE_35_LITTLE.jpg	500
-PICTURE_351_LITTLE.jpg	500
-PICTURE_365_LITTLE.jpg	500
-PICTURE_38_LITTLE.jpg	500
-PICTURE_405_LITTLE.jpg	500
-PICTURE_447_LITTLE.jpg	500
-PICTURE_487_LITTLE.jpg	500
-PICTURE_510_LITTLE.jpg	500
-PICTURE_559_LITTLE.jpg	500
-PICTURE_569_LITTLE.jpg	500
-PICTURE_579_LITTLE.jpg	500
-PICTURE_580_LITTLE.jpg	500
-PICTURE_585_LITTLE.jpg	500
-PICTURE_605_LITTLE.jpg	500
-PICTURE_661_LITTLE.jpg	500
-PICTURE_680_LITTLE.jpg	500
-PICTURE_691_LITTLE.jpg	500
-PICTURE_707_LITTLE.jpg	500
-PICTURE_8_LITTLE.jpg	500
-PICTURE_9_LITTLE.jpg	500
+picture_file,n_lemma_en,n_lemma_de,n_lemma_fr
+PICTURE_680_LITTLE.jpg,bow,Bogen,arc
+PICTURE_338_LITTLE.jpg,present,Geschenk,cadeau
+PICTURE_707_LITTLE.jpg,dog,Hund,chien
+PICTURE_559_LITTLE.jpg,cucumber,Gurke,concombre
+PICTURE_17_LITTLE.jpg,devil,Teufel,diable
+PICTURE_579_LITTLE.jpg,elephant,Elefant,éléphant
+PICTURE_152_LITTLE.jpg,snail,Schnecke,escargot
+PICTURE_365_LITTLE.jpg,hedgehog,Igel,hérisson
+PICTURE_115_LITTLE.jpg,hippo,Nilpferd,hippopotame
+PICTURE_691_LITTLE.jpg,man,Mann,homme
+PICTURE_241_LITTLE.jpg,eye,Auge,oeil
+PICTURE_196_LITTLE.jpg,computer,Computer,ordinateur
+PICTURE_487_LITTLE.jpg,basket,Korb,panier
+PICTURE_351_LITTLE.jpg,butterfly,Schmetterling,papillon
+PICTURE_661_LITTLE.jpg,drawer,Schublade,tiroir
+PICTURE_510_LITTLE.jpg,face,Gesicht,visage
+PICTURE_405_LITTLE.jpg,anchor,Anker,ancre
+PICTURE_38_LITTLE.jpg,spider,Spinne,araignée
+PICTURE_299_LITTLE.jpg,ostrich,Strauß,autruche
+PICTURE_343_LITTLE.jpg,bottle,Flasche,bouteille
+PICTURE_569_LITTLE.jpg,tooth,Zahn,dent
+PICTURE_9_LITTLE.jpg,shower,Dusche,douche
+PICTURE_447_LITTLE.jpg,star,Stern,étoile
+PICTURE_585_LITTLE.jpg,ant,Ameise,fourmi
+PICTURE_236_LITTLE.jpg,giraffe,Giraffe,girafe
+PICTURE_605_LITTLE.jpg,harp,Harfe,harpe
+PICTURE_260_LITTLE.jpg,island,Insel,île
+PICTURE_580_LITTLE.jpg,nurse,Krankenschwester,infirmier
+PICTURE_8_LITTLE.jpg,leg,Bein,jambe
+PICTURE_35_LITTLE.jpg,ear,Ohr,oreille
+PICTURE_148_LITTLE.jpg,pipe,Pfeife,pipe
+PICTURE_319_LITTLE.jpg,cow,Kuh,vache
