@@ -32,12 +32,9 @@ newTrial("intro_familiarization",
     newText("<p>First, we'll familiarize you with the pictures.</p>")
         .print()
     ,
-    newText("<p>We'll show you each picture along with the name you should use for it during the experiment.</p>")
+    newText("<p>We'll show you each picture along with the name you should use for it during the experiment.</p><br><p><strong>Try to memorize the correct name for each picture!</strong></p>")
         .print()
         ,
-    newText("<p><strong>Try to memorize the correct name for each picture!</strong></p>")
-        .print()
-    ,
     newText("<p>After each picture, press [SPACE] to continue.</p>")
         .print()
     ,
@@ -72,7 +69,7 @@ newTrial("intro_bare_nouns",
     newText("<p>Now you'll see those same pictures again a few times.</p>")
         .print()
     ,
-    newText("<p>Sometimes they will appear larger or differently colored, but you can ignore these diffrerences.</p>")
+    newText("<p>Sometimes they will appear larger than or differently colored from before, but you can ignore these differences.</p>")
         .print()
     ,
     newText("<p>Please say the correct name for the picture as quickly as you can.</p>")
