@@ -1,15 +1,15 @@
 PennController.ResetPrefix(null); // Initiates PennController
 
-Sequence( "intro1", "intro2", randomize("familiarization") , "send" , "final" )
+Sequence( "intro_ID", "intro_familiarization", randomize("familiarization"), "intro_bare_nouns", randomize("bare_nouns"), "send" , "final" );
 
 // Start typing your code here
-newTrial("intro1",
+newTrial("intro_ID",
     defaultText
         .print()
     ,
     newText("<p>Welcome!</p>")
     ,
-    newText("<p>In this experiment, you will have to describe pictures in different ways.</p>")
+    newText("<p>In this experiment, your task is to describe pictures in various ways.</p>")
 ,
     newText("<p>Please enter your ID</p>")
     ,
@@ -25,51 +25,72 @@ newTrial("intro1",
 )
 .log( "ID" , getVar("ID") );
 
-newTrial("intro2",
+newTrial("intro_familiarization",
     defaultText
         .print()
     ,
     newText("<p>First, we'll familiarize you with the pictures.</p>")
         .print()
     ,
-    newText("<p>We'll show you each picture along with the name you should use for it.</p>")
+    newText("<p>We'll show you each picture along with the name you should use for it during the experiment.</p>")
         .print()
         ,
+    newText("<p><strong>Try to memorize the correct name for each picture!</strong></p>")
+        .print()
+    ,
+    newText("<p>After each picture, press [SPACE] to continue.</p>")
+        .print()
+    ,
     newButton("Start")
         .print()
         .wait()
 
-)
+);
 
-Template("material_selection.csv",
-    variable =>
+Template(GetTable("familiarization.csv"),
+    fam =>
     newTrial("familiarization",
 
-    newImage("picture", variable.picture_file)
-    .size(variable.picture_size, variable.picture_size)
+    newImage("picture", fam.picture_file)
+    .size(500, 500)
     .print()
     ,
-    newTimer("trial_time", 500)
-    .start()
-    .wait()
-    ,
-    newText(variable.n_lemma_en)
+    newText(fam.n_en)
     .center()
     .settings.css("font-size", "2em")
     .print()
     ,
-    newTimer("trial_time", 1000)
-    .start()
+    newKey("space", " ")
     .wait()
     )
-   .log( "sub_id"     , getVar("ID")    )
-   .log( "n_lemma"   , variable.n_lemma_de   )
-   .log( "adj_lemma" , variable.adj_lemma_de )
 );
 
+newTrial("intro_bare_nouns",
+    defaultText
+        .print()
+    ,
+    newText("<p>Now you'll see those same pictures again a few times.</p>")
+        .print()
+    ,
+    newText("<p>Sometimes they will appear larger or differently colored, but you can ignore these diffrerences.</p>")
+        .print()
+    ,
+    newText("<p>Please say the correct name for the picture as quickly as you can.</p>")
+        .print()
+    ,
+    newText("<p>After each picture, press [SPACE] to continue.</p>")
+        .print()
+    ,
+    newButton("Start")
+        .print()
+        .wait()
 
-Template(variable =>
-    newTrial("bare_noun",
+);
+
+Template(GetTable("stimuli.csv"),
+    bn =>
+    newTrial("bare_nouns",
+
     newImage("fixation_cross", "fixation_cross.png")
     .size(500, 500)
     .print()
@@ -81,8 +102,8 @@ Template(variable =>
     getImage("fixation_cross")
     .remove()
     ,
-    newImage("picture", variable.picture_file)
-    .size(variable.picture_size, variable.picture_size)
+    newImage("picture", bn.picture_file)
+    .size(500, 500)
     .print()
     ,
     newTimer("trial_time", 3000)
@@ -92,19 +113,16 @@ Template(variable =>
     getImage("picture")
     .remove()
     ,
-    newText(variable.continue_de)
-    .css("border", "solid 200px white")
-    .print()
-    ,
     newKey("space", " ")
     .wait()
     )
    .log( "sub_id"     , getVar("ID")    )
-   .log( "n_lemma"   , variable.n_lemma_de   )
-   .log( "adj_lemma" , variable.adj_lemma_de )
+   .log( "n_en"   , bn.n_en  )
+   .log( "adj_en" , bn.adj_en )
 );
 
 SendResults("send");
+
 newTrial("final",
     newText("<p>Thank you for your participation!</p>")
         .print()
