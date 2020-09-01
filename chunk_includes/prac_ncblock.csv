@@ -1,0 +1,9 @@
+session,subj,trialNr,itemNr,phrase_item,adj,noun,condition_phrFreq,condition_exposure,blocktype,category,phrase_practice,picture_file;
+pretrain,S01,30,55,Tomate-neu,Tomate,neu,LFP,SN,ncblock,vegetable,Tomate-neu,tomate_neu.png;
+pretrain,S01,31,37,Lampe-gross,Lampe,gross,LFP,SN,ncblock,furniture,Lampe-gross,lampe_gross.png;
+pretrain,S01,32,27,Hemd-klein,Hemd,klein,LFP,SP,ncblock,clothing,Hemd-klein,hemd_klein.png;
+pretrain,S01,33,2,Ball-neu,Ball,neu,LFP,SP,ncblock,tool,Ball-neu,ball_neu.png;
+pretrain,S01,34,8,Bombe-alt,Bombe,alt,LFP,SN,ncblock,etc,Bombe-alt,bombe_alt.png;
+pretrain,S01,35,11,Brot-neu,Brot,neu,LFP,SP,ncblock,food,Brot-neu,brot_neu.png;
+pretrain,S01,36,47,Rock-klein,Rock,klein,LFP,SN,ncblock,clothing,Rock-klein,rock_klein.png;
+pretrain,S01,37,52,Tasse-neu,Tasse,neu,LFP,SN,ncblock,tool,Tasse-neu,tasse_neu.png;

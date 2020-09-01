@@ -1,0 +1,9 @@
+session,subj,trialNr,itemNr,phrase_item,adj,noun,condition_phrFreq,condition_exposure,blocktype,category,phrase_practice,picture_file;
+pretrain,S01,1,15,Dach-rot,Dach,rot,HFP,SN,cblock,building,Dach-rot,dach_rot.png;
+pretrain,S01,2,29,Hose-schwarz,Hose,schwarz,HFP,SN,cblock,clothing,Hose-schwarz,hose_schwarz.png;
+pretrain,S01,3,20,Feder-weiss,Feder,weiss,HFP,SN,cblock,etc,Feder-weiss,feder_weiss.png;
+pretrain,S01,4,1,Apfel-rot,Apfel,rot,HFP,SP,cblock,food,Apfel-rot,apfel_rot.png;
+pretrain,S01,5,3,Baum-gruen,Baum,gruen,HFP,SN,cblock,nature,Baum-gruen,baum_gruen.png;
+pretrain,S01,6,4,Bett-gruen,Bett,gruen,LFP,SP,cblock,furniture,Bett-gruen,bett_gruen.png;
+pretrain,S01,7,23,Frau-schwarz,Frau,schwarz,HFP,SN,cblock,human,Frau-schwarz,frau_schwarz.png;
+pretrain,S01,8,56,Topf-schwarz,Topf,schwarz,LFP,SN,cblock,tool,Topf-schwarz,topf_schwarz.png;
