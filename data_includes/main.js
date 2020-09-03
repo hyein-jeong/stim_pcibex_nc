@@ -41,14 +41,17 @@ Sequence("intro_ID",
 "initiate_recorder",
 "instruct_1_general",
 "instruct_2_prac_cblock",
-"preload_prac_cblock",
-"prac_cblock",
+"preload_prac_cblock","prac_cblock",
+	 
+"instruct_3_cblock_pretrain",
+"preload_pretrain_cblock","pretrain_cblock",
+"instruct_4_pause_after_cblock_pretrain",
+	 
 "instruct_5_prac_ncblock",
-"preload_prac_ncblock",
-"prac_ncblock",
+"preload_prac_ncblock","prac_ncblock",
 
-"preload_pretrain_cblock",
-"pretrain_cblock",
+"instruct_6_ncblock_pretrain",
+"preload_pretrain_ncblock","pretrain_ncblock",
 "instruct_7_pause_after_ncblock_pretrain",
 
 "preload_testsession",
@@ -131,11 +134,54 @@ newTrial("instruct_2_prac_cblock",
         .wait()
 );
 
+
+newTrial("instruct_3_cblock_pretrain",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_3_cblock_pretrain.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+
+newTrial("instruct_4_pause_after_cblock_pretrain",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_4_pause_after_cblock_pretrain.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+
 newTrial("instruct_5_prac_ncblock",
     defaultText
         .print()
     ,
     newImage("pic_instruct", "instruct_5_prac_ncblock.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+
+newTrial("instruct_6_ncblock_pretrain",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_6_ncblock_pretrain.png")
         .size(1280, 720)
         .print()
     ,
@@ -157,6 +203,7 @@ newTrial("instruct_7_pause_after_ncblock_pretrain",
         .wait()
 );
 
+//// templates for practice trials 
 
 Template(GetTable("prac_cblock.csv"),
     prac_cblock =>
@@ -257,11 +304,11 @@ Template(GetTable("prac_ncblock.csv"),
 );
 
 
-//////////////// templates for trials during pretrain, train and test session 
+//////templates for trials during pretrain, train and test session 
 
-Template(GetTable("list1_pretrain.csv"),
-    pretrain =>
-    newTrial("pretrain",
+Template(GetTable("list1_pretrain_cblock.csv"),
+    pretrain_cb =>
+    newTrial("pretrain_cb",
     
     newImage("fixation_cross", "fixation.png")
         .size(300, 300)
@@ -280,7 +327,7 @@ Template(GetTable("list1_pretrain.csv"),
         .record()
         .log()
     ,
-    newImage("pretrain_picture", pretrain.picture_file)
+    newImage("pretrain_picture", pretrain_cb.picture_file)
         .size(300, 300)
         .print()
     ,
@@ -302,12 +349,61 @@ Template(GetTable("list1_pretrain.csv"),
         .log()
     )
     .log( "sub_id"     , getVar("ID")    )
-    .log( "phrase_item", pretrain.phrase_item )
-    .log( "phrase_pretrain", pretrain.phrase_pretrain)
-    .log( "condition_exposure", pretrain.condition_exposure)
-    .log( "condition_phrFreq", pretrain.condition_phrFreq)
+    .log( "phrase_item", pretrain_cb.phrase_item )
+    .log( "phrase_pretrain", pretrain_cb.phrase_pretrain)
+    .log( "condition_exposure", pretrain_cb.condition_exposure)
+    .log( "condition_phrFreq", pretrain_cb.condition_phrFreq)
 );
 
+
+Template(GetTable("list1_pretrain_ncblock.csv"),
+    pretrain_ncb =>
+    newTrial("pretrain_cb",
+    
+    newImage("fixation_cross", "fixation.png")
+        .size(300, 300)
+        .print()
+        .log()
+    ,
+    newTimer("pretrain_fixation", 500)
+        .start()
+        .wait()
+    ,
+    getImage("fixation_cross")
+        .remove()
+    ,
+    newMediaRecorder("pretrain_recorder", "audio")
+        .hidden()
+        .record()
+        .log()
+    ,
+    newImage("pretrain_picture", pretrain_ncb.picture_file)
+        .size(300, 300)
+        .print()
+    ,
+    newTimer("pretrain_trial", 3000)
+        .start()
+        .wait()
+        .log()
+    ,
+    getImage("pretrain_picture")
+        .remove()
+    ,
+    getMediaRecorder("pretrain_recorder")
+        .stop()
+        .remove()
+    ,
+    newTimer("post_trial", 1000)
+        .start()
+        .wait()
+        .log()
+    )
+    .log( "sub_id"     , getVar("ID")    )
+    .log( "phrase_item", pretrain_ncb.phrase_item )
+    .log( "phrase_pretrain", pretrain_ncb.phrase_pretrain)
+    .log( "condition_exposure", pretrain_ncb.condition_exposure)
+    .log( "condition_phrFreq", pretrain_ncb.condition_phrFreq)
+);
 
 Template(GetTable("list1_train.csv"),
     train1 =>
@@ -358,9 +454,9 @@ Template(GetTable("list1_train.csv"),
     .log( "condition_phrFreq", train1.condition_phrFreq)
 );
 
-Template(GetTable("list1_test.csv"),
-    testsession =>
-    newTrial("testsession",
+Template(GetTable("list1_test_cblock.csv"),
+    test_cb =>
+    newTrial("test_cb",
     
     newImage("fixation_cross", "fixation.png")
         .size(300, 300)
@@ -379,7 +475,7 @@ Template(GetTable("list1_test.csv"),
         .record()
         .log()
     ,
-    newImage("test_picture", testsession.picture_file)
+    newImage("test_picture", test_cb.picture_file)
         .size(300, 300)
         .print()
         .log()
@@ -401,10 +497,59 @@ Template(GetTable("list1_test.csv"),
         .log()
     )
     .log( "sub_id"     , getVar("ID")    )
-    .log( "phrase_item", testsession.phrase_item )
-    .log( "phrase_test", testsession.phrase_test )
-    .log( "condition_exposure", testsession.condition_exposure)
-    .log( "condition_phrFreq", testsession.condition_phrFreq)
+    .log( "phrase_item", test_cb.phrase_item )
+    .log( "phrase_test", test_cb.phrase_test )
+    .log( "condition_exposure", test_cb.condition_exposure)
+    .log( "condition_phrFreq", test_cb.condition_phrFreq)
+);
+
+Template(GetTable("list1_test_ncblock.csv"),
+    test_ncb =>
+    newTrial("test_ncb",
+    
+    newImage("fixation_cross", "fixation.png")
+        .size(300, 300)
+        .print()
+        .log()
+    ,
+    newTimer("test_fixation", 500)
+        .start()
+        .wait()
+    ,
+    getImage("fixation_cross")
+        .remove()
+    ,
+    newMediaRecorder("test_recorder", "audio")
+        .hidden()
+        .record()
+        .log()
+    ,
+    newImage("test_picture", test_ncb.picture_file)
+        .size(300, 300)
+        .print()
+        .log()
+    ,
+    newTimer("test_trial", 3000)
+        .start()
+        .wait()
+    ,
+    getImage("test_picture")
+        .remove()
+    ,
+    getMediaRecorder("test_recorder")
+        .stop()
+        .remove()
+    ,
+    newTimer("post_trial", 1000)
+        .start()
+        .wait()
+        .log()
+    )
+    .log( "sub_id"     , getVar("ID")    )
+    .log( "phrase_item", test_ncb.phrase_item )
+    .log( "phrase_test", test_ncb.phrase_test )
+    .log( "condition_exposure", test_ncb.condition_exposure)
+    .log( "condition_phrFreq", test_ncb.condition_phrFreq)
 );
 
 SendResults("send");
