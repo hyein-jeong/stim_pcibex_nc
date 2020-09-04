@@ -40,23 +40,36 @@ window.requestAnimationFrame( replaceUploadingMessage );
 Sequence("intro_ID",
 "initiate_recorder",
 "instruct_1_general",
-"instruct_2_prac_cblock",
-"preload_prac_cblock","prac_cblock",
 	 
+"preload_prac_cblock",
+"instruct_2_prac_cblock",
+"prac_cblock",
+	 
+"preload_pretrain_cblock",
 "instruct_3_cblock_pretrain",
-"preload_pretrain_cblock","pretrain_cblock",
+"pretrain_cblock",
 "instruct_4_pause_after_cblock_pretrain",
 	 
+"preload_prac_ncblock",
 "instruct_5_prac_ncblock",
-"preload_prac_ncblock","prac_ncblock",
+"prac_ncblock",
 
+"preload_pretrain_ncblock",
 "instruct_6_ncblock_pretrain",
-"preload_pretrain_ncblock","pretrain_ncblock",
+"pretrain_ncblock",
 "instruct_7_pause_after_ncblock_pretrain",
 
-"preload_testsession",
-"testsession",
+"instruct_9_0_general_test",
+"preload_test_cb",
+"instruct_9_1_cblock_test",
+"test_cb",
+	 
+"preload_test_ncb",
+"instruct_9_2_ncblock_test",
+"test_ncb",
+	 
 "send",
+"instruct_9_3_test_uploading",	 
 "final");
 
 
@@ -66,8 +79,11 @@ CheckPreloaded("prac_cblock", 5000)
 CheckPreloaded("prac_ncblock", 5000)
     .label("preload_prac_ncblock");
  
-CheckPreloaded("pretrain", 5000)
-    .label("preload_pretrain");
+CheckPreloaded("pretrain_cblock", 5000)
+    .label("preload_pretrain_cblock");
+
+CheckPreloaded("pretrain_ncblock", 5000)
+    .label("preload_pretrain_ncblock");
 
 CheckPreloaded("train1", 5000)
     .label("preload_train1");
@@ -198,7 +214,60 @@ newTrial("instruct_7_pause_after_ncblock_pretrain",
         .size(1280, 720)
         .print()
     ,
+    newButton("continue", "Click here to continue")
+        .print()
+        .wait()
+);
+
+
+newTrial("instruct_9_0_general_test",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_9_0_general_test.png")
+        .size(1280, 720)
+        .print()
+    ,
     newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_9_1_cblock_test",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_9_1_cblock_test.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_9_2_ncblock_test",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_9_2_ncblock_test.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_9_3_test_uploading",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_9_3_test_uploading.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to complete your participation")
         .print()
         .wait()
 );
