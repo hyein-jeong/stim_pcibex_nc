@@ -45,18 +45,18 @@ Sequence("intro_ID",
 "instruct_2_prac_cblock",
 "prac_cblock",
 	 
-"preload_pretrain_cblock",
+"preload_pretrain_cb",
 "instruct_3_cblock_pretrain",
-"pretrain_cblock",
+"pretrain_cb",
 "instruct_4_pause_after_cblock_pretrain",
 	 
 "preload_prac_ncblock",
 "instruct_5_prac_ncblock",
 "prac_ncblock",
 
-"preload_pretrain_ncblock",
+"preload_pretrain_ncb",
 "instruct_6_ncblock_pretrain",
-"pretrain_ncblock",
+"pretrain_ncb",
 "instruct_7_pause_after_ncblock_pretrain",
 
 "instruct_9_0_general_test",
