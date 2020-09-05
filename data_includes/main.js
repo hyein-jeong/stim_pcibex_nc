@@ -1,11 +1,7 @@
 PennController.ResetPrefix(null);  // Initiates PennController
 
-PennController.InitiateRecorder("https://github.com/hyein-jeong/pcibex_exp2/upload-recording-test.php")
-	.label("initiate_recorder");
-
 var showProgressBar = true;
 //var progressBarText = "Fortschritt";
-
 
 //edit text pop up for voice recording
 let replaceConsentMic = ()=>{
@@ -34,6 +30,9 @@ const replaceUploadingMessage = ()=>{
 };
 window.requestAnimationFrame( replaceUploadingMessage );
 
+//start the recorder and send result files to the server
+PennController.InitiateRecorder("https://uni-potsdam.de/phraseproduction/exp2/upload-recording.php")
+	.label("initiate_recorder");
 
 // Show the 'intro' trial first, then all the 'experiment' trials in a random order
 // then send the results and finally show the trial labeled 'bye'
@@ -59,6 +58,24 @@ Sequence("intro_ID",
 "pretrain_ncb",
 "instruct_7_pause_after_ncblock_pretrain",
 
+"instruct_8_0_train",
+"instruct_8_1_cblock_train1",
+"instruct_8_1_ncblock_train1",
+"instruct_8_2_cblock_train2",
+"instruct_8_2_ncblock_train2",
+"instruct_8_2_pause_after_ncblock_train2.png",
+	 
+"instruct_8_3_cblock_train3",
+"instruct_8_3_ncblock_train3",
+"instruct_8_4_cblock_train4",
+"instruct_8_4_ncblock_train4",
+"instruct_8_4_pause_after_ncblock_train4.png",
+
+"instruct_8_5_cblock_train5",
+"instruct_8_5_ncblock_train5",
+"instruct_8_6_cblock_train6",
+"instruct_8_6_ncblock_train6",
+	 
 "instruct_9_0_general_test",
 "preload_test_cb",
 "instruct_9_1_cblock_test",
@@ -88,9 +105,11 @@ CheckPreloaded("pretrain_ncblock", 5000)
 CheckPreloaded("train1", 5000)
     .label("preload_train1");
 
-CheckPreloaded("testsession", 5000)
-    .label("preload_testsession");
+CheckPreloaded("test_cb", 5000)
+    .label("preload_test_cb");
 
+CheckPreloaded("test_ncb", 5000)
+    .label("preload_test_ncb");
 
 newTrial("intro_ID",
     defaultText
@@ -122,6 +141,49 @@ newTrial("testpage",
     newButton("continue", " press the spacebar to continue")
         .print()
         .wait()
+);
+
+Template(GetTable("audio_check.csv"),
+    ac =>
+    newTrial("audio_check",
+        defaultText
+            .print()
+        ,
+        newText("line1", ac.line1)
+            .css("border", "solid 10px white")
+        ,
+        newText("line2", ac.line2)
+            .css("border", "solid 10px white")
+        ,
+        newText("line3", ac.line3)
+            .css("border", "solid 10px white")
+        ,
+        newText("line4", ac.line4)
+            .css("border", "solid 10px white")
+        ,
+        newText("line5", ac.line5)
+            .css("border", "solid 10px white")
+        ,
+        newText("line6", ac.line6)
+            .css("border", "solid 10px white")
+        ,
+        newText("line7", ac.line7)
+            .css("border", "solid 10px white")
+        ,
+        newMediaRecorder("ac_recorder", "audio")
+            .center()
+            .print()
+        ,
+        newText("line8", ac.line8)
+            .css("border", "solid 10px white")
+        ,
+        newButton("ac_test_button", "Fortfahren")
+            .center()
+            .size(100, 30)
+            .css("border", "solid 5px white")
+            .print()
+            .wait(getMediaRecorder("ac_recorder").test.recorded())
+    )
 );
 
 newTrial("instruct_1_general",
@@ -219,6 +281,217 @@ newTrial("instruct_7_pause_after_ncblock_pretrain",
         .wait()
 );
 
+
+newTrial("instruct_8_0_train",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_0_train.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_1_cblock_train1",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_1_cblock_train1.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+
+newTrial("instruct_8_1_ncblock_train1",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_1_ncblock_train1.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_2_cblock_train2",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_2_cblock_train2.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_2_ncblock_train2",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_2_ncblock_train2.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_2_pause_after_ncblock_train2",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_2_pause_after_ncblock_train2.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+
+newTrial("instruct_8_3_cblock_train3",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_3_cblock_train3.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_3_ncblock_train3",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_3_ncblock_train3.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_4_cblock_train4",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_4_cblock_train4.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_4_ncblock_train4",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_4_ncblock_train4.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_4_pause_after_ncblock_train4",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_4_pause_after_ncblock_train4.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+
+newTrial("instruct_8_5_cblock_train5",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_5_cblock_train5.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_5_ncblock_train5",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_5_ncblock_train5.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_6_cblock_train6",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_6_cblock_train6.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_6_ncblock_train6",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_6_ncblock_train6.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
+
+newTrial("instruct_8_6_pause_after_ncblock_train6",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct", "instruct_8_6_pause_after_ncblock_train6.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newButton("continue", "Click here to continue to start the session")
+        .print()
+        .wait()
+);
 
 newTrial("instruct_9_0_general_test",
     defaultText
