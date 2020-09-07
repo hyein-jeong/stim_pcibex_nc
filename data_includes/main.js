@@ -183,13 +183,13 @@ Template(GetTable("intro_ID.csv"),
             .print()
         ,
         newText("instr_1", iid.line1)
-            .css("border", "solid 1px white")
+            .css("text-decoration","underline")
             .print()
         ,
         newButton("instr_button", "Fortfahren")
             .center()
             .size(100, 30)
-            .css("border", "solid 1px white")
+            .css("border", "solid 5px white")
             .print()
             .wait()
     )
@@ -223,7 +223,7 @@ Template(GetTable("consent_form.csv"),
             .print()
         ,
         newText("line1", cf.line1)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
         ,
         newCanvas("consent_canvas", 800, 400)
             .add(0, 0, getText("line1"))
@@ -253,7 +253,7 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line2", qu.line2)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
             .after(getTextInput("Gender"))
             .print()
         ,
@@ -263,7 +263,7 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line3", qu.line3)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
             .after(getDropDown("Age"))
             .print()
         ,
@@ -272,7 +272,7 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line4", qu.line4)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
             .after(getTextInput("Language"))
             .print()
         ,
@@ -283,7 +283,7 @@ Template(GetTable("questionnaire.csv"),
             .size(30,15)
         ,
         newText("line5", qu.line5)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
             .after(getImage("yes_hear"))
             .after(getImage("no_hear"))
             .print()
@@ -300,7 +300,7 @@ Template(GetTable("questionnaire.csv"),
             .size(30,15)
         ,
         newText("line6", qu.line6)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
             .after(getImage("yes_imp"))
             .after(getImage("no_imp"))
             .print()
@@ -315,7 +315,7 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line7", qu.line7)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
             .after(getTextInput("Impairments"))
             .print()
         ,
@@ -324,7 +324,7 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line8", qu.line8)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
             .after(getTextInput("Prolific_ID"))
             .print()
         ,
@@ -339,44 +339,6 @@ Template(GetTable("questionnaire.csv"),
     )
 );
 
-newTrial("audio_check_test",
-        defaultText
-            .print()
-        ,
-        newText("line1", "Bitte nehmen Sie an diesem Experiment nur teil, wenn Sie sich in einem ruhigen Raum befinden.")
-        ,
-        newText("line2", "Bevor wir fortfahren, überprüfen Sie bitte, ob Ihr Mikrofon ordnungsgemäß funktioniert und wie laut Sie sprechen müssen, um eine gute Aufnahme zu erhalten.")
-            .css("border", "solid 10px white")
-        ,
-        newText("line3", "Führen Sie dazu die folgenden Schritte (wenn nötig mehrmals) aus:")
-            .css("border", "solid 10px white")
-        ,
-        newText("line4", "1. Klicken Sie auf die Aufnahmetaste („Record“).")
-            .css("border", "solid 10px white")
-        ,
-        newText("line5", "2. Sagen Sie die Worte „Test, Test, Test.“")
-            .css("border", "solid 10px white")
-        ,
-        newText("line6", "3. Klicken Sie auf die Schaltfläche „Stop“.")
-            .css("border", "solid 10px white")
-        ,
-        newText("line7", "4. Klicken Sie auf die Wiedergabetaste (▷), um zu überprüfen, ob die Aufnahme in Ordnung ist und ob Sie laut genug sprechen.")
-            .css("border", "solid 10px white")
-        ,
-        newMediaRecorder("ac_recorder", "audio")
-            .center()
-            .print()
-        ,
-        newText("line8", "Wenn alles in Ordnung ist, klicken Sie bitte auf „Fortfahren“. Wenn die Audioqualität der Aufnahme schlecht ist, obwohl Sie ziemlich laut sprechen, setzen Sie das Experiment bitte nicht (mit Ihrem aktuellen Computer und Mikrofon) fort.")
-            .css("border", "solid 10px white")
-        ,
-        newButton("ac_test_button", "Fortfahren")
-            .center()
-            .size(100, 30)
-            .css("border", "solid 5px white")
-            .print()
-            .wait(getMediaRecorder("ac_recorder").test.recorded())
-    )
 
 Template(GetTable("audio_check.csv"),
     ac =>
@@ -385,32 +347,25 @@ Template(GetTable("audio_check.csv"),
             .print()
         ,
         newText("line1", ac.line1)
-            .css("border", "solid 10px white")
         ,
         newText("line2", ac.line2)
-            .css("border", "solid 10px white")
         ,
         newText("line3", ac.line3)
-            .css("border", "solid 10px white")
         ,
         newText("line4", ac.line4)
-            .css("border", "solid 10px white")
         ,
         newText("line5", ac.line5)
-            .css("border", "solid 10px white")
         ,
         newText("line6", ac.line6)
-            .css("border", "solid 10px white")
         ,
         newText("line7", ac.line7)
-            .css("border", "solid 10px white")
         ,
         newMediaRecorder("ac_recorder", "audio")
             .center()
             .print()
         ,
         newText("line8", ac.line8)
-            .css("border", "solid 10px white")
+            .css("border", "solid 2px white")
         ,
         newButton("ac_test_button", "Fortfahren")
             .center()
