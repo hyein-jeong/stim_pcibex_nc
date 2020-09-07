@@ -247,14 +247,13 @@ Template(GetTable("questionnaire.csv"),
         ,
         newText("line1", qu.line1)
             .css("border", "solid 10px white")
-	    .css("background", "transparent")
+	    .css("background", "white")
         ,
         newTextInput("Gender")
             .size(100, 20)
             .log()
         ,
         newText("line2", qu.line2)
-            .css("border", "solid 2px white")
             .after(getTextInput("Gender"))
             .print()
         ,
@@ -264,7 +263,6 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line3", qu.line3)
-            .css("border", "solid 2px white")
             .after(getDropDown("Age"))
             .print()
         ,
@@ -273,7 +271,6 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line4", qu.line4)
-            .css("border", "solid 2px white")
             .after(getTextInput("Language"))
             .print()
         ,
@@ -284,7 +281,6 @@ Template(GetTable("questionnaire.csv"),
             .size(30,15)
         ,
         newText("line5", qu.line5)
-            .css("border", "solid 2px white")
             .after(getImage("yes_hear"))
             .after(getImage("no_hear"))
             .print()
@@ -301,7 +297,6 @@ Template(GetTable("questionnaire.csv"),
             .size(30,15)
         ,
         newText("line6", qu.line6)
-            .css("border", "solid 2px white")
             .after(getImage("yes_imp"))
             .after(getImage("no_imp"))
             .print()
@@ -316,7 +311,6 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line7", qu.line7)
-            .css("border", "solid 2px white")
             .after(getTextInput("Impairments"))
             .print()
         ,
@@ -325,7 +319,6 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newText("line8", qu.line8)
-            .css("border", "solid 2px white")
             .after(getTextInput("Prolific_ID"))
             .print()
         ,
@@ -404,9 +397,9 @@ newTrial("instruct_2_prac_cblock",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 
@@ -418,9 +411,9 @@ newTrial("instruct_3_cblock_pretrain",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 
@@ -432,9 +425,9 @@ newTrial("instruct_4_pause_after_cblock_pretrain",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 
@@ -446,9 +439,9 @@ newTrial("instruct_5_prac_ncblock",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 
@@ -460,9 +453,9 @@ newTrial("instruct_6_ncblock_pretrain",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_7_pause_after_ncblock_pretrain",
@@ -473,9 +466,9 @@ newTrial("instruct_7_pause_after_ncblock_pretrain",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 
@@ -487,9 +480,9 @@ newTrial("instruct_8_0_train",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_1_cblock_train1",
@@ -500,9 +493,9 @@ newTrial("instruct_8_1_cblock_train1",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 
@@ -514,9 +507,9 @@ newTrial("instruct_8_1_ncblock_train1",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_2_cblock_train2",
@@ -527,9 +520,9 @@ newTrial("instruct_8_2_cblock_train2",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_2_ncblock_train2",
@@ -540,9 +533,9 @@ newTrial("instruct_8_2_ncblock_train2",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_2_pause_after_ncblock_train2",
@@ -553,9 +546,9 @@ newTrial("instruct_8_2_pause_after_ncblock_train2",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 
@@ -567,9 +560,9 @@ newTrial("instruct_8_3_cblock_train3",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_3_ncblock_train3",
@@ -580,9 +573,9 @@ newTrial("instruct_8_3_ncblock_train3",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_4_cblock_train4",
@@ -593,9 +586,9 @@ newTrial("instruct_8_4_cblock_train4",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_4_ncblock_train4",
@@ -606,9 +599,9 @@ newTrial("instruct_8_4_ncblock_train4",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_4_pause_after_ncblock_train4",
@@ -619,9 +612,9 @@ newTrial("instruct_8_4_pause_after_ncblock_train4",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 
@@ -633,9 +626,9 @@ newTrial("instruct_8_5_cblock_train5",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_5_ncblock_train5",
@@ -646,9 +639,9 @@ newTrial("instruct_8_5_ncblock_train5",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_6_cblock_train6",
@@ -659,9 +652,9 @@ newTrial("instruct_8_6_cblock_train6",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_6_ncblock_train6",
@@ -672,9 +665,9 @@ newTrial("instruct_8_6_ncblock_train6",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_8_6_pause_after_ncblock_train6",
@@ -685,9 +678,9 @@ newTrial("instruct_8_6_pause_after_ncblock_train6",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_9_0_general_test",
@@ -698,9 +691,9 @@ newTrial("instruct_9_0_general_test",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_9_1_cblock_test",
@@ -711,9 +704,9 @@ newTrial("instruct_9_1_cblock_test",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_9_2_ncblock_test",
@@ -724,9 +717,9 @@ newTrial("instruct_9_2_ncblock_test",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to continue to start the session")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_9_3_test_uploading",
@@ -737,9 +730,9 @@ newTrial("instruct_9_3_test_uploading",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", "Click here to complete your participation")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 ////////////////////////////////////  templates for practice trials 
