@@ -247,6 +247,7 @@ Template(GetTable("questionnaire.csv"),
         ,
         newText("line1", qu.line1)
             .css("border", "solid 10px white")
+	    .css("background", "transparent")
         ,
         newTextInput("Gender")
             .size(100, 20)
@@ -347,19 +348,25 @@ Template(GetTable("audio_check.csv"),
             .print()
         ,
         newText("line1", ac.line1)
+	     .bold()	
+	     .css("background", "white")
         ,
         newText("line2", ac.line2)
         ,
         newText("line3", ac.line3)
         ,
         newText("line4", ac.line4)
+	     .css("background", "white")
         ,
         newText("line5", ac.line5)
+	     .css("background", "white")
         ,
         newText("line6", ac.line6)
-        ,
+	     .css("background", "white")
+	,
         newText("line7", ac.line7)
-        ,
+ 	     .css("background", "white")
+	,
         newMediaRecorder("ac_recorder", "audio")
             .center()
             .print()
