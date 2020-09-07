@@ -40,35 +40,28 @@ Sequence("intro_ID",
 	 "audio_check",
 	 "questionnaire",	 
 	 
-"instruct_1_general",
-	 
+"instruct_1_general",	 
 "preload_prac_cb",
 "instruct_2_prac_cblock",
 "prac_cb",
-	 
 "preload_pretrain_cb",
 "instruct_3_cblock_pretrain",
 "pretrain_cb",
 "instruct_4_pause_after_cblock_pretrain",
-	 
 "preload_prac_ncb",
 "instruct_5_prac_ncblock",
 "prac_ncb",
-
 "preload_pretrain_ncb",
 "instruct_6_ncblock_pretrain",
 "pretrain_ncb",
 "instruct_7_pause_after_ncblock_pretrain",
-
-"instruct_8_0_train",
-	 
+"instruct_8_0_train",	 
 "preload_train1_cb",
 "preload_train1_ncb",
 "instruct_8_1_cblock_train1",
 "train1_cb",
 "instruct_8_1_ncblock_train1",
-"train1_ncb",
-	 
+"train1_ncb",	 
 "preload_train2_cb",
 "preload_train2_ncb",
 "instruct_8_2_cblock_train2",
@@ -82,8 +75,7 @@ Sequence("intro_ID",
 "instruct_8_3_cblock_train3",
 randomize("train3_cb"),	 
 "instruct_8_3_ncblock_train3",
-randomize("train3_ncb"),
-	 
+randomize("train3_ncb"),	 
 "preload_train4_cb",
 "preload_train4_ncb",
 "instruct_8_4_cblock_train4",
@@ -91,7 +83,6 @@ randomize("train3_ncb"),
 "instruct_8_4_ncblock_train4",
 "train4_ncb",
 "instruct_8_4_pause_after_ncblock_train4.png",
-
 "preload_train5_cb",
 "preload_train5_ncb",
 "preload_train6_cb",
@@ -103,17 +94,14 @@ randomize("train3_ncb"),
 "instruct_8_6_cblock_train6",
 "train6_cb",
 "instruct_8_6_ncblock_train6",
-"train6_ncb",	 
-	 
+"train6_ncb",	 	 
 "instruct_9_0_general_test",
 "preload_test_cb",
 "instruct_9_1_cblock_test",
-"test_cb",
-	 
+"test_cb",	 
 "preload_test_ncb",
 "instruct_9_2_ncblock_test",
-"test_ncb",
-	 
+"test_ncb",	 
 "comment",
 "send",
 "instruct_9_3_test_uploading",	 
@@ -893,7 +881,7 @@ Template(GetTable("list1_pretrain_cblock.csv"),
 
 Template(GetTable("list1_pretrain_ncblock.csv"),
     pretrain_ncb =>
-    newTrial("pretrain_cb",
+    newTrial("pretrain_ncb",
     
     newImage("fixation_cross", "fixation.png")
         .size(300, 300)
