@@ -183,7 +183,7 @@ Template(GetTable("intro_ID.csv"),
             .print()
         ,
         newText("instr_1", iid.line1)
-            .css("border", "solid 5px gray")
+            .css("border", "solid 1px white")
             .print()
         ,
         newButton("instr_button", "Fortfahren")
@@ -344,7 +344,6 @@ newTrial("audio_check_test",
             .print()
         ,
         newText("line1", "Bitte nehmen Sie an diesem Experiment nur teil, wenn Sie sich in einem ruhigen Raum befinden.")
-            .css("border", "solid 10px white")
         ,
         newText("line2", "Bevor wir fortfahren, überprüfen Sie bitte, ob Ihr Mikrofon ordnungsgemäß funktioniert und wie laut Sie sprechen müssen, um eine gute Aufnahme zu erhalten.")
             .css("border", "solid 10px white")
