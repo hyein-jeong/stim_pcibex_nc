@@ -762,7 +762,7 @@ Template(GetTable("prac_cblock.csv"),
         .size(300, 300)
         .print()
     ,
-    newTimer("prac_trial", 3000)
+    newTimer("prac_trial", 2000)
         .start()
         .wait()
         .log()
@@ -770,14 +770,15 @@ Template(GetTable("prac_cblock.csv"),
     getImage("prac_picture")
         .remove()
     ,
-    getMediaRecorder("prac_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("prac_recorder")
+        .stop()
+        .remove()
+	.log()
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", prac_cb.phrase_item )
@@ -811,7 +812,7 @@ Template(GetTable("prac_ncblock.csv"),
         .size(300, 300)
         .print()
     ,
-    newTimer("prac_trial", 3000)
+    newTimer("prac_trial", 2000)
         .start()
         .wait()
         .log()
@@ -819,14 +820,15 @@ Template(GetTable("prac_ncblock.csv"),
     getImage("prac_picture")
         .remove()
     ,
-    getMediaRecorder("prac_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("prac_recorder")
+        .stop()
+        .remove()
+	.log()
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", prac_ncb.phrase_item )
@@ -863,7 +865,7 @@ Template(GetTable("list1_pretrain_cblock.csv"),
         .size(300, 300)
         .print()
     ,
-    newTimer("pretrain_trial", 3000)
+    newTimer("pretrain_trial", 2000)
         .start()
         .wait()
         .log()
@@ -871,14 +873,15 @@ Template(GetTable("list1_pretrain_cblock.csv"),
     getImage("pretrain_picture")
         .remove()
     ,
-    getMediaRecorder("pretrain_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("pretrain_recorder")
+        .stop()
+        .remove()
+	.log()    
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", pretrain_cb.phrase_item )
@@ -913,7 +916,7 @@ Template(GetTable("list1_pretrain_ncblock.csv"),
         .size(300, 300)
         .print()
     ,
-    newTimer("pretrain_trial", 3000)
+    newTimer("pretrain_trial", 2000)
         .start()
         .wait()
         .log()
@@ -921,14 +924,15 @@ Template(GetTable("list1_pretrain_ncblock.csv"),
     getImage("pretrain_picture")
         .remove()
     ,
-    getMediaRecorder("pretrain_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("pretrain_recorder")
+        .stop()
+        .remove()
+	.log()    
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", pretrain_ncb.phrase_item )
@@ -936,57 +940,6 @@ Template(GetTable("list1_pretrain_ncblock.csv"),
     .log( "condition_exposure", pretrain_ncb.condition_exposure)
     .log( "condition_phrFreq", pretrain_ncb.condition_phrFreq)
 );
-
-Template(GetTable("list1_train.csv"),
-    train1 =>
-    newTrial("train1",
-    
-    newImage("fixation_cross", "fixation.png")
-        .size(300, 300)
-        .print()
-        .log()
-    ,
-    newTimer("train_fixation", 500)
-        .start()
-        .wait()
-    ,
-    getImage("fixation_cross")
-        .remove()
-    ,
-    newMediaRecorder("train1_recorder", "audio")
-        .hidden()
-        .record()
-        .log()
-    ,
-    newImage("train1_picture", train1.picture_file_train1)
-        .size(300, 300)
-        .print()
-        .log()
-    ,
-    newTimer("train1_trial", 3000)
-        .start()
-        .wait()
-    ,
-    getImage("train1_picture")
-        .remove()
-    ,
-    getMediaRecorder("train1_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
-        .start()
-        .wait()
-        .log()
-    )
-    .log( "sub_id"     , getVar("ID")    )
-    .log( "phrase_item", train1.phrase_item )
-    .log( "phrase_train1", train1.phrase_train1)
-    .log( "condition_exposure", train1.condition_exposure)
-    .log( "condition_phrFreq", train1.condition_phrFreq)
-);
-
-
 
 Template(GetTable("list1_train1_cblock.csv"),
     train1_cb =>
@@ -1014,21 +967,22 @@ Template(GetTable("list1_train1_cblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train1_trial", 3000)
+    newTimer("train1_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train1_picture")
         .remove()
     ,
-    getMediaRecorder("train1_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train1_recorder")
+        .stop()
+        .remove()
+	.log() 
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train1_cb.phrase_item )
@@ -1063,21 +1017,22 @@ Template(GetTable("list1_train1_ncblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train1_trial", 3000)
+    newTimer("train1_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train1_picture")
         .remove()
     ,
-    getMediaRecorder("train1_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train1_recorder")
+        .stop()
+        .remove()
+	.log()
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train1_ncb.phrase_item )
@@ -1113,21 +1068,22 @@ Template(GetTable("list1_train2_cblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train2_trial", 3000)
+    newTimer("train2_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train2_picture")
         .remove()
     ,
-    getMediaRecorder("train2_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train2_recorder")
+        .stop()
+        .remove()
+	.log()    
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train2_cb.phrase_item)
@@ -1162,21 +1118,22 @@ Template(GetTable("list1_train2_ncblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train2_trial", 3000)
+    newTimer("train2_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train2_picture")
         .remove()
     ,
-    getMediaRecorder("train2_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train2_recorder")
+        .stop()
+        .remove()
+	.log()  
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train2_ncb.phrase_item )
@@ -1211,21 +1168,22 @@ Template(GetTable("list1_train3_cblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train3_trial", 3000)
+    newTimer("train3_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train3_picture")
         .remove()
-    ,
-    getMediaRecorder("train3_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    ,
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train3_recorder")
+        .stop()
+        .remove()
+	.log()  
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train3_cb.phrase_item)
@@ -1260,21 +1218,22 @@ Template(GetTable("list1_train3_ncblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train3_trial", 3000)
+    newTimer("train3_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train3_picture")
         .remove()
     ,
-    getMediaRecorder("train3_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train3_recorder")
+        .stop()
+        .remove()
+	.log()  
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train3_ncb.phrase_item )
@@ -1309,21 +1268,22 @@ Template(GetTable("list1_train4_cblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train4_trial", 3000)
+    newTimer("train4_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train4_picture")
         .remove()
     ,
-    getMediaRecorder("train4_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train4_recorder")
+        .stop()
+        .remove()
+	.log()  
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train4_cb.phrase_item)
@@ -1358,21 +1318,22 @@ Template(GetTable("list1_train4_ncblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train4_trial", 3000)
+    newTimer("train4_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train4_picture")
         .remove()
     ,
-    getMediaRecorder("train4_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train4_recorder")
+        .stop()
+        .remove()
+	.log()       
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train4_ncb.phrase_item )
@@ -1407,21 +1368,22 @@ Template(GetTable("list1_train5_cblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train5_trial", 3000)
+    newTimer("train5_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train5_picture")
         .remove()
     ,
-    getMediaRecorder("train5_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train5_recorder")
+        .stop()
+        .remove()
+	.log()   
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train5_cb.phrase_item)
@@ -1456,21 +1418,22 @@ Template(GetTable("list1_train5_ncblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train5_trial", 3000)
+    newTimer("train5_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train5_picture")
         .remove()
     ,
-    getMediaRecorder("train5_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train5_recorder")
+        .stop()
+        .remove()
+	.log()   
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train5_ncb.phrase_item )
@@ -1505,21 +1468,22 @@ Template(GetTable("list1_train6_cblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train6_trial", 3000)
+    newTimer("train6_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train6_picture")
         .remove()
     ,
-    getMediaRecorder("train6_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("train6_recorder")
+        .stop()
+        .remove()
+	.log()   
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train6_cb.phrase_item)
@@ -1554,22 +1518,23 @@ Template(GetTable("list1_train6_ncblock.csv"),
         .print()
         .log()
     ,
-    newTimer("train6_trial", 3000)
+    newTimer("train6_trial", 2000)
         .start()
         .wait()
     ,
     getImage("train6_picture")
         .remove()
     ,
-    getMediaRecorder("train6_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
-    )
+    ,
+    getMediaRecorder("train6_recorder")
+        .stop()
+        .remove()
+	.log()  
+    )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", train6_ncb.phrase_item )
     .log( "phrase_train6", train6_ncb.phrase_train6)
@@ -1606,21 +1571,22 @@ Template(GetTable("list1_test_cblock.csv"),
         .print()
         .log()
     ,
-    newTimer("test_trial", 3000)
+    newTimer("test_trial", 2000)
         .start()
         .wait()
     ,
     getImage("test_picture")
         .remove()
     ,
-    getMediaRecorder("test_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("test_recorder")
+        .stop()
+        .remove()
+	.log()  
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", test_cb.phrase_item )
@@ -1655,21 +1621,22 @@ Template(GetTable("list1_test_ncblock.csv"),
         .print()
         .log()
     ,
-    newTimer("test_trial", 3000)
+    newTimer("test_trial", 2000)
         .start()
         .wait()
     ,
     getImage("test_picture")
         .remove()
     ,
-    getMediaRecorder("test_recorder")
-        .stop()
-        .remove()
-    ,
-    newTimer("post_trial", 1000)
+    newTimer("post_trial", 1500)
         .start()
         .wait()
         .log()
+    ,
+    getMediaRecorder("test_recorder")
+        .stop()
+        .remove()
+	.log()  
     )
     .log( "sub_id"     , getVar("ID")    )
     .log( "phrase_item", test_ncb.phrase_item )
