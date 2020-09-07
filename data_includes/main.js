@@ -234,10 +234,10 @@ Template(GetTable("questionnaire.csv"),
             .after(getTextInput("Language"))
             .print()
         ,
-        newImage("yes_hear", "Ja.png")
+        newImage("yes_hear", "resp_ja.png")
             .size(30,15)
         ,
-        newImage("no_hear", "Nein.png")
+        newImage("no_hear", "resp_nein.png")
             .size(30,15)
         ,
         newText("line5", qu.line5)
@@ -251,10 +251,10 @@ Template(GetTable("questionnaire.csv"),
             .select(getImage("no_hear"))
             .log()
         ,
-        newImage("yes_imp", "Ja.png")
+        newImage("yes_imp", "resp_ja.png")
             .size(30,15)
         ,
-        newImage("no_imp", "Nein.png")
+        newImage("no_imp", "resp_nein.png")
             .size(30,15)
         ,
         newText("line6", qu.line6)
