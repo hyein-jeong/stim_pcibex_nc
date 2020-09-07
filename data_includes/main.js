@@ -36,23 +36,24 @@ window.requestAnimationFrame( replaceUploadingMessage );
 // then send the results and finally show the trial labeled 'bye'
 Sequence("intro_ID",
 	 "consent_form",
-    "initiate_recorder",
-    "audio_check",
-    "questionnaire",	 
+	 "initiate_recorder",
+	 "audio_check",
+	 "questionnaire",	 
+	 
 "instruct_1_general",
 	 
-"preload_prac_cblock",
+"preload_prac_cb",
 "instruct_2_prac_cblock",
-"prac_cblock",
+"prac_cb",
 	 
 "preload_pretrain_cb",
 "instruct_3_cblock_pretrain",
 "pretrain_cb",
 "instruct_4_pause_after_cblock_pretrain",
 	 
-"preload_prac_ncblock",
+"preload_prac_ncb",
 "instruct_5_prac_ncblock",
-"prac_ncblock",
+"prac_ncb",
 
 "preload_pretrain_ncb",
 "instruct_6_ncblock_pretrain",
@@ -60,26 +61,41 @@ Sequence("intro_ID",
 "instruct_7_pause_after_ncblock_pretrain",
 
 "instruct_8_0_train",
+	 
+"preload_train1_cb",
+"preload_train1_ncb",
 "instruct_8_1_cblock_train1",
 "train1_cb",
 "instruct_8_1_ncblock_train1",
 "train1_ncb",
+	 
+"preload_train2_cb",
+"preload_train2_ncb",
 "instruct_8_2_cblock_train2",
 "train2_cb", 
 "instruct_8_2_ncblock_train2",
 "train2_ncb",
 "instruct_8_2_pause_after_ncblock_train2.png",
-	 
+
+"preload_train3_cb",
+"preload_train3_ncb",
 "instruct_8_3_cblock_train3",
-"train3_cb",	 
+randomize("train3_cb"),	 
 "instruct_8_3_ncblock_train3",
-"train3_ncb",
+randomize("train3_ncb"),
+	 
+"preload_train4_cb",
+"preload_train4_ncb",
 "instruct_8_4_cblock_train4",
 "train4_cb",
 "instruct_8_4_ncblock_train4",
 "train4_ncb",
 "instruct_8_4_pause_after_ncblock_train4.png",
 
+"preload_train5_cb",
+"preload_train5_ncb",
+"preload_train6_cb",
+"preload_train6_ncb",
 "instruct_8_5_cblock_train5",
 "train5_cb",
 "instruct_8_5_ncblock_train5",
@@ -104,20 +120,46 @@ Sequence("intro_ID",
 "final");
 
 
-CheckPreloaded("prac_cblock", 5000)
-    .label("preload_prac_cblock");
-   
-CheckPreloaded("prac_ncblock", 5000)
-    .label("preload_prac_ncblock");
+CheckPreloaded("prac_cb", 5000)
+    .label("preload_prac_cb");   
+CheckPreloaded("prac_ncb", 5000)
+    .label("preload_prac_ncb");
  
-CheckPreloaded("pretrain_cblock", 5000)
-    .label("preload_pretrain_cblock");
+CheckPreloaded("pretrain_cb", 5000)
+    .label("preload_pretrain_cb");
+CheckPreloaded("pretrain_ncb", 5000)
+    .label("preload_pretrain_ncb");
 
-CheckPreloaded("pretrain_ncblock", 5000)
-    .label("preload_pretrain_ncblock");
+CheckPreloaded("train1_cb", 5000)
+    .label("preload_train1_cb");
+CheckPreloaded("train1_ncb", 5000)
+    .label("preload_train1_ncb");
 
-CheckPreloaded("train1", 5000)
-    .label("preload_train1");
+CheckPreloaded("train2_cb", 5000)
+    .label("preload_train2_cb");
+CheckPreloaded("train2_ncb", 5000)
+    .label("preload_train2_ncb");
+
+CheckPreloaded("train3_cb", 5000)
+    .label("preload_train3_cb");
+CheckPreloaded("train3_ncb", 5000)
+    .label("preload_train3_ncb");
+
+CheckPreloaded("train4_cb", 5000)
+    .label("preload_train4_cb");
+CheckPreloaded("train4_ncb", 5000)
+    .label("preload_train4_ncb");
+
+CheckPreloaded("train5_cb", 5000)
+    .label("preload_train5_cb");
+CheckPreloaded("train5_ncb", 5000)
+    .label("preload_train5_ncb");
+
+CheckPreloaded("train6_cb", 5000)
+    .label("preload_train6_cb");
+CheckPreloaded("train6_ncb", 5000)
+    .label("preload_train6_ncb");
+
 
 CheckPreloaded("test_cb", 5000)
     .label("preload_test_cb");
@@ -141,13 +183,13 @@ Template(GetTable("intro_ID.csv"),
             .print()
         ,
         newText("instr_1", iid.line1)
-            .css("border", "solid 5px white")
+            .css("border", "solid 5px gray")
             .print()
         ,
         newButton("instr_button", "Fortfahren")
             .center()
             .size(100, 30)
-            .css("border", "solid 5px white")
+            .css("border", "solid 1px white")
             .print()
             .wait()
     )
@@ -388,9 +430,9 @@ newTrial("instruct_1_general",
         .size(1280, 720)
         .print()
     ,
-    newButton("continue", " press the spacebar to continue")
-        .print()
-        .wait()
+    newKey("space", " ")
+	.log()
+        .wait()
 );
 
 newTrial("instruct_2_prac_cblock",
@@ -739,11 +781,11 @@ newTrial("instruct_9_3_test_uploading",
         .wait()
 );
 
-//// templates for practice trials 
+////////////////////////////////////  templates for practice trials 
 
 Template(GetTable("prac_cblock.csv"),
-    prac_cblock =>
-    newTrial("prac_cblock",
+    prac_cb =>
+    newTrial("prac_cb",
     
     newImage("fixation_cross", "fixation.png")
         .size(300, 300)
@@ -762,7 +804,7 @@ Template(GetTable("prac_cblock.csv"),
         .record()
         .log()
     ,
-    newImage("prac_picture", prac_cblock.picture_file)
+    newImage("prac_picture", prac_cb.picture_file)
         .size(300, 300)
         .print()
     ,
@@ -784,15 +826,15 @@ Template(GetTable("prac_cblock.csv"),
         .log()
     )
     .log( "sub_id"     , getVar("ID")    )
-    .log( "phrase_item", prac_cblock.phrase_item )
-    .log( "phrase_practice", prac_cblock.phrase_practice)
-    .log( "condition_exposure", prac_cblock.condition_exposure)
-    .log( "condition_phrFreq", prac_cblock.condition_phrFreq)
+    .log( "phrase_item", prac_cb.phrase_item )
+    .log( "phrase_practice", prac_cb.phrase_practice)
+    .log( "condition_exposure", prac_cb.condition_exposure)
+    .log( "condition_phrFreq", prac_cb.condition_phrFreq)
 );
 
 Template(GetTable("prac_ncblock.csv"),
-    prac_ncblock =>
-    newTrial("prac_ncblock",
+    prac_ncb =>
+    newTrial("prac_ncb",
     
     newImage("fixation_cross", "fixation.png")
         .size(300, 300)
@@ -811,7 +853,7 @@ Template(GetTable("prac_ncblock.csv"),
         .record()
         .log()
     ,
-    newImage("prac_picture", prac_ncblock.picture_file)
+    newImage("prac_picture", prac_ncb.picture_file)
         .size(300, 300)
         .print()
     ,
@@ -833,10 +875,10 @@ Template(GetTable("prac_ncblock.csv"),
         .log()
     )
     .log( "sub_id"     , getVar("ID")    )
-    .log( "phrase_item", prac_ncblock.phrase_item )
-    .log( "phrase_practice", prac_ncblock.phrase_practice)
-    .log( "condition_exposure", prac_ncblock.condition_exposure)
-    .log( "condition_phrFreq", prac_ncblock.condition_phrFreq)
+    .log( "phrase_item", prac_ncb.phrase_item )
+    .log( "phrase_practice", prac_ncb.phrase_practice)
+    .log( "condition_exposure", prac_ncb.condition_exposure)
+    .log( "condition_phrFreq", prac_ncb.condition_phrFreq)
 );
 
 
