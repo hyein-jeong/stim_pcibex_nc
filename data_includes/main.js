@@ -38,6 +38,7 @@ PennController.InitiateRecorder("https://uni-potsdam.de/phraseproduction/exp2/up
 // then send the results and finally show the trial labeled 'bye'
 Sequence("intro_ID",
 "initiate_recorder",
+"audio_check_test",
 "instruct_1_general",
 	 
 "preload_prac_cblock",
@@ -132,16 +133,45 @@ newTrial("intro_ID",
 .log( "ID" , getVar("ID") );
 
 
-newTrial("testpage",
-    defaultText
-        .print()
-    ,
-    newText("<p>this is a test page!</p>")
-    ,
-    newButton("continue", " press the spacebar to continue")
-        .print()
-        .wait()
-);
+newTrial("audio_check_test",
+        defaultText
+            .print()
+        ,
+        newText("line1", "Bitte nehmen Sie an diesem Experiment nur teil, wenn Sie sich in einem ruhigen Raum befinden.")
+            .css("border", "solid 10px white")
+        ,
+        newText("line2", "Bevor wir fortfahren, überprüfen Sie bitte, ob Ihr Mikrofon ordnungsgemäß funktioniert und wie laut Sie sprechen müssen, um eine gute Aufnahme zu erhalten.")
+            .css("border", "solid 10px white")
+        ,
+        newText("line3", "Führen Sie dazu die folgenden Schritte (wenn nötig mehrmals) aus:")
+            .css("border", "solid 10px white")
+        ,
+        newText("line4", "1. Klicken Sie auf die Aufnahmetaste („Record“).")
+            .css("border", "solid 10px white")
+        ,
+        newText("line5", "2. Sagen Sie die Worte „Test, Test, Test.“")
+            .css("border", "solid 10px white")
+        ,
+        newText("line6", "3. Klicken Sie auf die Schaltfläche „Stop“.")
+            .css("border", "solid 10px white")
+        ,
+        newText("line7", "4. Klicken Sie auf die Wiedergabetaste (▷), um zu überprüfen, ob die Aufnahme in Ordnung ist und ob Sie laut genug sprechen.")
+            .css("border", "solid 10px white")
+        ,
+        newMediaRecorder("ac_recorder", "audio")
+            .center()
+            .print()
+        ,
+        newText("line8", "Wenn alles in Ordnung ist, klicken Sie bitte auf „Fortfahren“. Wenn die Audioqualität der Aufnahme schlecht ist, obwohl Sie ziemlich laut sprechen, setzen Sie das Experiment bitte nicht (mit Ihrem aktuellen Computer und Mikrofon) fort.")
+            .css("border", "solid 10px white")
+        ,
+        newButton("ac_test_button", "Fortfahren")
+            .center()
+            .size(100, 30)
+            .css("border", "solid 5px white")
+            .print()
+            .wait(getMediaRecorder("ac_recorder").test.recorded())
+    )
 
 Template(GetTable("audio_check.csv"),
     ac =>
