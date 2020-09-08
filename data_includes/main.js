@@ -57,42 +57,41 @@ Sequence("intro_ID",
 "instruct_7_pause_after_ncblock_pretrain",
 "instruct_8_0_train",	 
 "preload_train1_cb",
-"preload_train1_ncb",
 "instruct_8_1_cblock_train1",
 "train1_cb",
+"preload_train1_ncb",
 "instruct_8_1_ncblock_train1",
 "train1_ncb",	 
 "preload_train2_cb",
-"preload_train2_ncb",
 "instruct_8_2_cblock_train2",
 "train2_cb", 
+"preload_train2_ncb",
 "instruct_8_2_ncblock_train2",
 "train2_ncb",
 "instruct_8_2_pause_after_ncblock_train2.png",
-
 "preload_train3_cb",
-"preload_train3_ncb",
 "instruct_8_3_cblock_train3",
 randomize("train3_cb"),	 
+"preload_train3_ncb",
 "instruct_8_3_ncblock_train3",
 randomize("train3_ncb"),	 
 "preload_train4_cb",
-"preload_train4_ncb",
 "instruct_8_4_cblock_train4",
 "train4_cb",
+"preload_train4_ncb",
 "instruct_8_4_ncblock_train4",
 "train4_ncb",
 "instruct_8_4_pause_after_ncblock_train4.png",
 "preload_train5_cb",
-"preload_train5_ncb",
-"preload_train6_cb",
-"preload_train6_ncb",
 "instruct_8_5_cblock_train5",
 "train5_cb",
+"preload_train5_ncb",
 "instruct_8_5_ncblock_train5",
 "train5_ncb",
+"preload_train6_cb",
 "instruct_8_6_cblock_train6",
 "train6_cb",
+"preload_train6_ncb",
 "instruct_8_6_ncblock_train6",
 "train6_ncb",	 	 
 "instruct_9_0_general_test",
@@ -113,46 +112,46 @@ CheckPreloaded("prac_cb", 5000)
 CheckPreloaded("prac_ncb", 5000)
     .label("preload_prac_ncb");
  
-CheckPreloaded("pretrain_cb", 5000)
+CheckPreloaded("pretrain_cb", 10000)
     .label("preload_pretrain_cb");
-CheckPreloaded("pretrain_ncb", 5000)
+CheckPreloaded("pretrain_ncb", 10000)
     .label("preload_pretrain_ncb");
 
-CheckPreloaded("train1_cb", 5000)
+CheckPreloaded("train1_cb", 10000)
     .label("preload_train1_cb");
-CheckPreloaded("train1_ncb", 5000)
+CheckPreloaded("train1_ncb", 10000)
     .label("preload_train1_ncb");
 
-CheckPreloaded("train2_cb", 5000)
+CheckPreloaded("train2_cb", 10000)
     .label("preload_train2_cb");
-CheckPreloaded("train2_ncb", 5000)
+CheckPreloaded("train2_ncb", 10000)
     .label("preload_train2_ncb");
 
-CheckPreloaded("train3_cb", 5000)
+CheckPreloaded("train3_cb", 10000)
     .label("preload_train3_cb");
-CheckPreloaded("train3_ncb", 5000)
+CheckPreloaded("train3_ncb", 10000)
     .label("preload_train3_ncb");
 
-CheckPreloaded("train4_cb", 5000)
+CheckPreloaded("train4_cb", 10000)
     .label("preload_train4_cb");
-CheckPreloaded("train4_ncb", 5000)
+CheckPreloaded("train4_ncb", 10000)
     .label("preload_train4_ncb");
 
-CheckPreloaded("train5_cb", 5000)
+CheckPreloaded("train5_cb", 10000)
     .label("preload_train5_cb");
-CheckPreloaded("train5_ncb", 5000)
+CheckPreloaded("train5_ncb", 10000)
     .label("preload_train5_ncb");
 
-CheckPreloaded("train6_cb", 5000)
+CheckPreloaded("train6_cb", 10000)
     .label("preload_train6_cb");
-CheckPreloaded("train6_ncb", 5000)
+CheckPreloaded("train6_ncb", 10000)
     .label("preload_train6_ncb");
 
 
-CheckPreloaded("test_cb", 5000)
+CheckPreloaded("test_cb", 10000)
     .label("preload_test_cb");
 
-CheckPreloaded("test_ncb", 5000)
+CheckPreloaded("test_ncb", 10000)
     .label("preload_test_ncb");
 
 //start the recorder and send result files to the server
