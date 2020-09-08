@@ -103,7 +103,6 @@ randomize("train3_ncb"),
 "test_ncb",	 
 "comment",
 "send",
-"instruct_9_3_test_uploading",	 
 "final");
 
 
