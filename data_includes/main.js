@@ -41,6 +41,10 @@ Sequence("intro_ID",
 	 "questionnaire",	 
 	 
 "instruct_1_general",	 
+	 
+	 "preload_test_sample",
+	 "test_sample",
+	 
 "preload_prac_cb",
 "instruct_2_prac_cblock",
 "prac_cb",
@@ -105,6 +109,8 @@ randomize("train3_ncb"),
 "send",
 "final");
 
+CheckPreloaded("test_sample", 5000)
+    .label("preload_test_sample");   
 
 CheckPreloaded("prac_cb", 5000)
     .label("preload_prac_cb");   
@@ -722,6 +728,58 @@ newTrial("instruct_9_3_test_uploading",
 );
 
 ////////////////////////////////////  templates for practice trials 
+
+Template(GetTable("list1_test.csv"),
+    test_sample =>
+    newTrial("test_sample",
+    
+    newImage("fixation_cross", "fixation.png")
+        .size(300, 300)
+        .print()
+        .log()
+    ,
+    newTimer("prac_fixation", 500)
+        .start()
+        .wait()
+    ,
+    getImage("fixation_cross")
+        .remove()
+    ,
+    newMediaRecorder("test_sample_recorder", "audio")
+        .hidden()
+        .record()
+        .log()
+    ,
+    newImage("prac_picture", test_sample.picture_file)
+        .size(300, 300)
+        .print()
+    ,
+    newTimer("prac_trial", 2000)
+        .start()
+        .wait()
+        .log()
+    ,
+    getImage("prac_picture")
+        .remove()
+    ,
+    newTimer("post_trial", 1500)
+        .start()
+        .wait()
+        .log()
+    ,
+    getMediaRecorder("test_sample_recorder")
+        .stop()
+        .remove()
+	.log()
+    )
+    .log( "sub_id"     , getVar("ID")    )
+    .log( "phrase_item", test_sample.phrase_item )
+    .log( "phrase_test", test_sample.phrase_test)
+    .log( "condition_exposure", test_sample.condition_exposure)
+    .log( "condition_phrFreq", test_sample.condition_phrFreq)
+);
+
+////////////////////////////////////
 
 Template(GetTable("prac_cblock.csv"),
     prac_cb =>
