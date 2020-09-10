@@ -40,7 +40,8 @@ Sequence("intro_ID",
 	 "audio_check",
 	 "questionnaire",	 
 	 
-"instruct_1_general",	 	 
+"instruct_1_1_general",	 	
+"instruct_1_2_general",	 
 "preload_prac_cb",
 "instruct_2_prac_cblock",
 "prac_cb",
@@ -94,13 +95,13 @@ randomize("train3_ncb"),
 "preload_train6_ncb",
 "instruct_8_6_ncblock_train6",
 "train6_ncb",	 	 
-"instruct_9_0_general_test",
-"preload_test_cb",
-"instruct_9_1_cblock_test",
-"test_cb",	 
-"preload_test_ncb",
-"instruct_9_2_ncblock_test",
-"test_ncb",	 
+//"instruct_9_0_general_test",
+//"preload_test_cb",
+//"instruct_9_1_cblock_test",
+//"test_cb",	 
+//"preload_test_ncb",
+//"instruct_9_2_ncblock_test",
+//"test_ncb",	 
 "comment",
 "send",
 "final");
@@ -351,6 +352,7 @@ Template(GetTable("audio_check.csv"),
         newMediaRecorder("ac_recorder", "audio")
             .center()
             .print()
+	    .css( "border" , "solid 3px red" )
         ,
         newText("line8", ac.line8)
             .css("border", "solid 2px white")
@@ -364,11 +366,24 @@ Template(GetTable("audio_check.csv"),
     )
 );
 
-newTrial("instruct_1_general",
+newTrial("instruct_1_1_general",
     defaultText
         .print()
     ,
-    newImage("pic_instruct_1_general", "instruct_1_general.png")
+    newImage("pic_instruct_1_general", "instruct_1_1_general.png")
+        .size(1280, 720)
+        .print()
+    ,
+    newKey("space", " ")
+	.log()
+        .wait()
+);
+
+newTrial("instruct_1_2_general",
+    defaultText
+        .print()
+    ,
+    newImage("pic_instruct_1_general", "instruct_1_2_general.png")
         .size(1280, 720)
         .print()
     ,
