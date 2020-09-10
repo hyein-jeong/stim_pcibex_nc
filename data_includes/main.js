@@ -1655,12 +1655,6 @@ Template(GetTable("feedback.csv"),
             newText(fb.line1)
                 .print()
             ,
-            newTextInput("feedback")
-                .settings.size(400, 50)
-                .css("border", "solid 2px grey")
-                .settings.log()
-                .print()
-            ,
 	    newText(fb.line2)
                 .print()
             ,
@@ -1686,25 +1680,6 @@ Template(GetTable("feedback.csv"),
         )
 )
 
-
-Template(GetTable("feedback.csv"),
-    fb =>
-        newTrial("comment",
-            newText(fb.line1)
-                .print()
-            ,
-            newTextInput("feedback")
-                .settings.size(400, 50)
-                .css("border", "solid 2px grey")
-                .settings.log()
-                .print()
-            ,
-            newButton("comment_end_button", "Fortfahren")
-                .css("border", "solid 5px white")
-                .print()
-                .wait()
-        )
-)
 
 SendResults("send");
 
