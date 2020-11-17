@@ -312,6 +312,14 @@ Template(GetTable("questionnaire.csv"),
             .size(200, 20)
             .log()
         ,
+    	newVar("ProlificID")
+        	.global()
+        	.set( getTextInput("Prolific_ID") )
+	,
+	getVar("ProlificID")
+	     	.global()
+    		.set( getTextInput("Prolific_ID") )
+	,
         newText("line8", qu.line8)
             .after(getTextInput("Prolific_ID"))
             .print()        
@@ -324,7 +332,7 @@ Template(GetTable("questionnaire.csv"),
                 )
             ,
             fullscreen()
-    ).log( "ProlificID" , getTextInput("Prolific_ID")  )
+    ).log( "ProlificID" , getVar("ProlificID")  )
 );
 
 
@@ -788,7 +796,7 @@ Template(GetTable("prac_cblock.csv"),
         .remove()
 	.log()
     )
-    .log( "ProlificID" , getTextInput("ProlificID")) 
+    .log( "ProlificID" , getVar("ProlificID") ) 
     .log( "phrase_item", prac_cb.phrase_item )
     .log( "phrase_practice", prac_cb.phrase_practice)
     .log( "condition_exposure", prac_cb.condition_exposure)
@@ -838,7 +846,7 @@ Template(GetTable("prac_ncblock.csv"),
         .remove()
 	.log()
     )
-    .log( "sub_id"     , getVar("ID")    )
+    .log( "sub_id"     , getVar("ID")     )
     .log( "phrase_item", prac_ncb.phrase_item )
     .log( "phrase_practice", prac_ncb.phrase_practice)
     .log( "condition_exposure", prac_ncb.condition_exposure)
