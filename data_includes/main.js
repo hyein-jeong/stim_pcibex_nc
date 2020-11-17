@@ -35,7 +35,6 @@ window.requestAnimationFrame( replaceUploadingMessage );
 // Show the 'intro' trial first, then all the 'experiment' trials in a random order
 // then send the results and finally show the trial labeled 'bye'
 Sequence("intro_ID",
-	 "intro_ID_prolific",
 	 "consent_form",
 	 "initiate_recorder",
 	 "audio_check",
@@ -185,31 +184,6 @@ Template(GetTable("intro_ID.csv"),
     )
 );
 
-newTrial("intro_ID_prolific",
-    defaultText
-        .print()
-    ,
-    newText("<p>Welcome!</p>"),
-    newText("<p>In this experiment, your task is to describe pictures in various ways.</p>"),
-    newText("<p>Please enter your ID</p>"),
-    newTextInput("ProlificID_1")
-	 .size(100, 20)
-         .print()
-	 .log()
-    ,
-    newVar("subj_ID")
-        .global()
-        .set( getTextInput("ProlificID_1") )
-	.log()
-    ,
-    newButton("Continue")
-        .print()
-        .wait()
-)
-.log( "subj_ID" , getVar("subj_ID") );
-	 
-
-
 Template(GetTable("consent_form.csv"),
     cf =>
     newTrial("consent_form",
@@ -269,10 +243,10 @@ Template(GetTable("questionnaire.csv"),
             .print()
         ,
         newImage("yes_hear", "resp_ja.png")
-            .size(30,15)
+            .size(30,20)
         ,
         newImage("no_hear", "resp_nein.png")
-            .size(30,15)
+            .size(30,20)
         ,
         newText("line5", qu.line5)
             .after(getImage("yes_hear"))
@@ -285,10 +259,10 @@ Template(GetTable("questionnaire.csv"),
             .log()
         ,
         newImage("yes_imp", "resp_ja.png")
-            .size(30,15)
+            .size(30,20)
         ,
         newImage("no_imp", "resp_nein.png")
-            .size(30,15)
+            .size(30,20)
         ,
         newText("line6", qu.line6)
             .after(getImage("yes_imp"))
@@ -307,13 +281,15 @@ Template(GetTable("questionnaire.csv"),
         newText("line7", qu.line7)
             .after(getTextInput("Impairments"))
             .print()
-        ,
+	,
+    	newVar("ProlificID")
+	,       
         newTextInput("Prolific_ID_input")
             .size(200, 20)
 	    .print()
             .log()
         ,
-    	newVar("ProlificID")
+	getVar("ProlificID")
         	.global()
         	.set(getTextInput("Prolific_ID_input"))
 	,
