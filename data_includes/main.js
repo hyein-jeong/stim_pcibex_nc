@@ -35,6 +35,7 @@ window.requestAnimationFrame( replaceUploadingMessage );
 // Show the 'intro' trial first, then all the 'experiment' trials in a random order
 // then send the results and finally show the trial labeled 'bye'
 Sequence("intro_ID",
+	 "intro_ID_prolific",
 	 "consent_form",
 	 "initiate_recorder",
 	 "audio_check",
@@ -184,25 +185,27 @@ Template(GetTable("intro_ID.csv"),
     )
 );
 
-newTrial("intro_ID_sample",
+newTrial("intro_ID_prolific",
     defaultText
         .print()
     ,
     newText("<p>Welcome!</p>"),
     newText("<p>In this experiment, your task is to describe pictures in various ways.</p>"),
     newText("<p>Please enter your ID</p>"),
-    newTextInput("inputID")
-        .print()
+    newTextInput("Prolific_ID")
+	 .size(100, 20)
+         .print()
+	 .log()
     ,
     newVar("ID")
         .global()
-        .set( getTextInput("inputID") )
+        .set( getTextInput("Prolific_ID") )
     ,
     newButton("Continue")
         .print()
         .wait()
 )
-.log( "ID" , getVar("ID") );
+.log( "sub_ID" , getVar("ID") );
 
 
 Template(GetTable("consent_form.csv"),
@@ -1700,7 +1703,7 @@ newTrial("final_sample",
     newText("<p>Thank you for your participation!</p>")
         .print()
     ,
-    newText("<p><a href='https://www.pcibex.net/'>Click here to validate your participation.</a></p>")
+    newText("<p><a href='https://app.prolific.co/submissions/complete?cc=2D6D5A46'>Click here to validate your participation.</a></p>")
         .print()
     ,
     newButton("void")
