@@ -205,7 +205,7 @@ newTrial("intro_ID_prolific",
         .print()
         .wait()
 )
-.log( "subj_ID" , getVar("subj_ID") );
+.log( "subj_ID" , getTextInput("ProlificID_input") );
 	 
 
 
@@ -311,11 +311,6 @@ Template(GetTable("questionnaire.csv"),
             .size(200, 20)
             .log()
         ,
-    	newVar("ProlificID")
-        	.global()
-        	.set( getTextInput("Prolific_ID") )
-	        .print()
-	,
         newText("line8", qu.line8)
             .after(getTextInput("Prolific_ID"))
             .print()
@@ -329,7 +324,7 @@ Template(GetTable("questionnaire.csv"),
                 )
             ,
             fullscreen()
-    ).log( "ProlificID" , getVar("ProlificID") )
+    ).log( "ProlificID" , getTextInput("Prolific_ID")  )
 );
 
 
