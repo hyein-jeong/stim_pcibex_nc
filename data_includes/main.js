@@ -192,20 +192,21 @@ newTrial("intro_ID_prolific",
     newText("<p>Welcome!</p>"),
     newText("<p>In this experiment, your task is to describe pictures in various ways.</p>"),
     newText("<p>Please enter your ID</p>"),
-    newTextInput("Prolific_ID")
+    newTextInput("ProlificID_input")
 	 .size(100, 20)
          .print()
 	 .log()
     ,
-    newVar("ID")
+    newVar("subj_ID")
         .global()
-        .set( getTextInput("Prolific_ID") )
+        .set( getTextInput("ProlificID_input") )
     ,
     newButton("Continue")
         .print()
         .wait()
 )
-.log( "sub_ID" , getVar("ID") );
+.log( "subj_ID" , getVar("subj_ID") );
+	 
 
 
 Template(GetTable("consent_form.csv"),
@@ -307,13 +308,17 @@ Template(GetTable("questionnaire.csv"),
             .print()
         ,
         newTextInput("Prolific_ID")
-            .size(100, 20)
+            .size(200, 20)
             .log()
         ,
         newText("line8", qu.line8)
             .after(getTextInput("Prolific_ID"))
             .print()
         ,
+    	newVar("ProlificID")
+        	.global()
+        	.set( getTextInput("Prolific_ID") )
+   	 ,
         newButton("qu_test_button", "Fortfahren in den Vollbildmodus.")
             .print()
             .wait(
@@ -323,6 +328,7 @@ Template(GetTable("questionnaire.csv"),
             ,
             fullscreen()
     )
+	 .log( "ProlificID" , getVar("ProlificID") );
 );
 
 
@@ -786,7 +792,7 @@ Template(GetTable("prac_cblock.csv"),
         .remove()
 	.log()
     )
-    .log( "sub_id"     , getVar("ID")    )
+    .log( "ProlificID" , getVar("Prolific_ID")) 
     .log( "phrase_item", prac_cb.phrase_item )
     .log( "phrase_practice", prac_cb.phrase_practice)
     .log( "condition_exposure", prac_cb.condition_exposure)
