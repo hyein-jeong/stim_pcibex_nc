@@ -311,13 +311,15 @@ Template(GetTable("questionnaire.csv"),
             .size(200, 20)
             .log()
         ,
-        newText("line8", qu.line8)
-            .after(getTextInput("Prolific_ID"))
-            .print()
-        ,
     	newVar("ProlificID")
         	.global()
         	.set( getTextInput("Prolific_ID") )
+	        .print()
+	,
+        newText("line8", qu.line8)
+            .after(getTextInput("Prolific_ID"))
+            .print()
+        
    	 ,
         newButton("qu_test_button", "Fortfahren in den Vollbildmodus.")
             .print()
@@ -327,8 +329,7 @@ Template(GetTable("questionnaire.csv"),
                 )
             ,
             fullscreen()
-    )
-	 .log( "ProlificID" , getVar("ProlificID") )
+    ).log( "ProlificID" , getVar("ProlificID") )
 );
 
 
@@ -792,7 +793,7 @@ Template(GetTable("prac_cblock.csv"),
         .remove()
 	.log()
     )
-    .log( "ProlificID" , getVar("Prolific_ID")) 
+    .log( "ProlificID" , getVar("ProlificID")) 
     .log( "phrase_item", prac_cb.phrase_item )
     .log( "phrase_practice", prac_cb.phrase_practice)
     .log( "condition_exposure", prac_cb.condition_exposure)
