@@ -328,7 +328,7 @@ Template(GetTable("questionnaire.csv"),
             ,
             fullscreen()
     )
-	 .log( "ProlificID" , getVar("ProlificID") );
+	 .log( "ProlificID" , getVar("ProlificID") )
 );
 
 
