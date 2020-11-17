@@ -308,20 +308,17 @@ Template(GetTable("questionnaire.csv"),
             .after(getTextInput("Impairments"))
             .print()
         ,
-        newTextInput("Prolific_ID")
+        newTextInput("Prolific_ID_input")
             .size(200, 20)
+	    .print()
             .log()
         ,
     	newVar("ProlificID")
         	.global()
-        	.set( getTextInput("Prolific_ID") )
-	,
-	getVar("ProlificID")
-	     	.global()
-    		.set( getTextInput("Prolific_ID") )
+        	.set(getTextInput("Prolific_ID_input"))
 	,
         newText("line8", qu.line8)
-            .after(getTextInput("Prolific_ID"))
+            .after(getTextInput("Prolific_ID_input"))
             .print()        
    	 ,
         newButton("qu_test_button", "Fortfahren in den Vollbildmodus.")
