@@ -200,12 +200,13 @@ newTrial("intro_ID_prolific",
     newVar("subj_ID")
         .global()
         .set( getTextInput("ProlificID_1") )
+	.log()
     ,
     newButton("Continue")
         .print()
         .wait()
 )
-.log( "subj_ID" , getTextInput("ProlificID_1") );
+.log( "subj_ID" , getVar("subj_ID") );
 	 
 
 
