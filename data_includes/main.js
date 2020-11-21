@@ -78,30 +78,23 @@ randomize("train3_cb"),
 randomize("train3_ncb"),	 
 "preload_train4_cb",
 "instruct_8_4_cblock_train4",
-"train4_cb",
+randomize("train4_cb"),
 "preload_train4_ncb",
 "instruct_8_4_ncblock_train4",
-"train4_ncb",
+randomize("train4_ncb"),
 "instruct_8_4_pause_after_ncblock_train4.png",
 "preload_train5_cb",
 "instruct_8_5_cblock_train5",
-"train5_cb",
+randomize("train5_cb"),
 "preload_train5_ncb",
 "instruct_8_5_ncblock_train5",
-"train5_ncb",
+randomize("train5_ncb"),
 "preload_train6_cb",
 "instruct_8_6_cblock_train6",
-"train6_cb",
+randomize("train6_cb"),
 "preload_train6_ncb",
 "instruct_8_6_ncblock_train6",
-"train6_ncb",	 	 
-//"instruct_9_0_general_test",
-//"preload_test_cb",
-//"instruct_9_1_cblock_test",
-//"test_cb",	 
-//"preload_test_ncb",
-//"instruct_9_2_ncblock_test",
-//"test_ncb",	 
+randomize("train6_ncb"),	
 "comment",
 "send",
 "final");
@@ -819,7 +812,7 @@ Template(GetTable("prac_ncblock.csv"),
         .remove()
 	.log()
     )
-    .log( "sub_id"     , getVar("ID")     )
+    .log( "sub_id"     , getVar("ProlificID")     )
     .log( "phrase_item", prac_ncb.phrase_item )
     .log( "phrase_practice", prac_ncb.phrase_practice)
     .log( "condition_exposure", prac_ncb.condition_exposure)
@@ -1649,12 +1642,21 @@ Template(GetTable("feedback.csv"),
                 .css("border", "solid 2px grey")
                 .settings.log()
                 .print()
-            ,
-	    newText(fb.line9)
+	    ,
+            newText(fb.line5)
                 .print()
             ,
 	    newTextInput("feedback")
                 .settings.size(400, 50)
+                .css("border", "solid 2px grey")
+                .settings.log()
+                .print()
+	    ,
+	    newText(fb.line9)
+                .print()
+            ,
+	    newTextInput("feedback")
+                .settings.size(400, 10)
                 .css("border", "solid 2px grey")
                 .settings.log()
                 .print()
