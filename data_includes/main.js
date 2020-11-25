@@ -30,7 +30,7 @@ const replaceUploadingMessage = ()=>{
 };
 window.requestAnimationFrame( replaceUploadingMessage );
 
-
+// DebugOff()
 
 // Show the 'intro' trial first, then all the 'experiment' trials in a random order
 // then send the results and finally show the trial labeled 'bye'
@@ -44,14 +44,14 @@ Sequence("intro_ID",
 "instruct_1_2_general",	 
 "preload_prac_cb",
 "instruct_2_prac_cblock",
-"prac_cb",
+randomize("prac_cb"),
 "preload_pretrain_cb",
 "instruct_3_cblock_pretrain",
 "pretrain_cb",
 "instruct_4_pause_after_cblock_pretrain",
 "preload_prac_ncb",
 "instruct_5_prac_ncblock",
-"prac_ncb",
+randomize("prac_ncb"),
 "preload_pretrain_ncb",
 "instruct_6_ncblock_pretrain",
 "pretrain_ncb",
@@ -59,16 +59,16 @@ Sequence("intro_ID",
 "instruct_8_0_train",	 
 "preload_train1_cb",
 "instruct_8_1_cblock_train1",
-"train1_cb",
+randomize("train1_cb"),
 "preload_train1_ncb",
 "instruct_8_1_ncblock_train1",
-"train1_ncb",	 
+randomize("train1_ncb"),	 
 "preload_train2_cb",
 "instruct_8_2_cblock_train2",
-"train2_cb", 
+randomize("train2_cb"), 
 "preload_train2_ncb",
 "instruct_8_2_ncblock_train2",
-"train2_ncb",
+randomize("train2_ncb"),
 "instruct_8_2_pause_after_ncblock_train2.png",
 "preload_train3_cb",
 "instruct_8_3_cblock_train3",
@@ -219,7 +219,7 @@ Template(GetTable("questionnaire.csv"),
             .print()
         ,
         newDropDown("Age", "--")
-            .add("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100+")
+            .add("18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100+")
             .print()
             .log()
         ,
