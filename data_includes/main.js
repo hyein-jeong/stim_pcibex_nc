@@ -30,7 +30,7 @@ const replaceUploadingMessage = ()=>{
 };
 window.requestAnimationFrame( replaceUploadingMessage );
 
-DebugOff()
+// DebugOff()
 
 // Show the 'intro' trial first, then all the 'experiment' trials in a random order
 // then send the results and finally show the trial labeled 'bye'
@@ -866,7 +866,8 @@ Template(GetTable("list1_pretrain_cblock.csv"),
 	.log()    
     )
     .log( "sub_id"     , getVar("ID")    )
-    .log( "phrase_item", pretrain_cb.phrase_item )
+    .log( "listNr" , pretrain_cb.list)
+    .log( "phrase_item", pretrain_cb.phrase_item )
     .log( "phrase_pretrain", pretrain_cb.phrase_pretrain)
     .log( "condition_exposure", pretrain_cb.condition_exposure)
     .log( "condition_phrFreq", pretrain_cb.condition_phrFreq)
@@ -917,6 +918,7 @@ Template(GetTable("list1_pretrain_ncblock.csv"),
 	.log()    
     )
     .log( "sub_id"     , getVar("ID")    )
+    .log( "listNr" , pretrain_ncb.list)
     .log( "phrase_item", pretrain_ncb.phrase_item )
     .log( "phrase_pretrain", pretrain_ncb.phrase_pretrain)
     .log( "condition_exposure", pretrain_ncb.condition_exposure)
