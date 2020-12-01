@@ -30,7 +30,7 @@ const replaceUploadingMessage = ()=>{
 };
 window.requestAnimationFrame( replaceUploadingMessage );
 
-// DebugOff()
+DebugOff()
 
 // Show the 'intro' trial first, then all the 'experiment' trials in a random order
 // then send the results and finally show the trial labeled 'bye'
@@ -1571,6 +1571,7 @@ Template(GetTable("list1_test_cblock.csv"),
 	.log()  
     )
     .log( "sub_id"     , getVar("ID")    )
+    .log( "listNr" , test_cb.list)
     .log( "phrase_item", test_cb.phrase_item )
     .log( "phrase_test", test_cb.phrase_test )
     .log( "condition_exposure", test_cb.condition_exposure)
@@ -1621,6 +1622,7 @@ Template(GetTable("list1_test_ncblock.csv"),
 	.log()  
     )
     .log( "sub_id"     , getVar("ID")    )
+    .log( "listNr" , test_ncb.list)
     .log( "phrase_item", test_ncb.phrase_item )
     .log( "phrase_test", test_ncb.phrase_test )
     .log( "condition_exposure", test_ncb.condition_exposure)
@@ -1656,7 +1658,7 @@ Template(GetTable("feedback.csv"),
                 .print()
             ,
 	    newTextInput("feedback")
-                .settings.size(400, 10)
+                .settings.size(400, 20)
                 .css("border", "solid 2px grey")
                 .settings.log()
                 .print()
